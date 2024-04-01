@@ -1,0 +1,54 @@
+.register {
+  width: 350px;
+  height: 100%;
+  margin: 0 auto;
+
+  &__fieldset {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    color: #fff;
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    min-height: 25px;
+    margin: 0 0 5px;
+    color: #fff;
+    padding: 0;
+    font-size: 14px;
+
+    &::placeholder {
+      color: #94adcf;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  }
+
+  &__input_error {
+    color: #ff4062;
+  }
+
+  &__span {
+    color: #ff4062;
+    font-size: 10px;
+    min-height: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .register {
+    width: 85%;
+  }
+}

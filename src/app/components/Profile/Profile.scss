@@ -1,0 +1,248 @@
+@keyframes appear-popup {
+  0% {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    width: 350px;
+    height: 350px;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes hide-popup {
+  0% {
+    width: 350px;
+    height: 350px;
+    visibility: visible;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.profile {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 65px;
+
+  &__container {
+    position: fixed;
+    top: 65px;
+    right: 70px;
+    width: 350px;
+    height: 350px;
+    background-color: #fff;
+    border-radius: 50px;
+
+    &_active {
+      animation-name: appear-popup;
+      animation-duration: 0.2s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+
+    &_inactive {
+      animation-name: hide-popup;
+      animation-duration: 0.2s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 0 0;
+    color: #000;
+  }
+
+  &__form {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__button-edit {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__edit-img {
+    width: 15px;
+    height: 15px;
+    object-fit: cover;
+  }
+
+  &__button-close {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 18px;
+    right: 38px;
+    cursor: pointer;
+    padding: 0;
+    animation-name: appear;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__fieldset {
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+    padding: 50px 0 0;
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+  }
+
+  &__container-input {
+    width: 100%;
+  }
+
+  &__label {
+    width: 100%;
+  }
+
+  &__input {
+    margin-bottom: 15px;
+    padding: 0 0 5px;
+    border: none;
+    border-bottom: 1px solid #000;
+
+    &::placeholder {
+      font-size: 14px;
+    }
+  }
+
+  &__button-exit {
+    display: block;
+    min-width: 80px;
+    margin: 0 auto;
+    border: none;
+    background-color: transparent;
+    padding: 75px 0 0;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__link {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .profile {
+    &__container {
+      right: 55px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .profile {
+    &__container {
+      right: 45px;
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  @keyframes appear-popup {
+    0% {
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  @keyframes hide-popup {
+    0% {
+      width: 100%;
+      height: 100%;
+      visibility: visible;
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  .profile {
+    &__container {
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+
+    &__input {
+      width: 90%;
+    }
+
+    &__button-exit {
+      padding-top: 42%;
+    }
+
+    &__fieldset {
+      padding-top: 25%;
+    }
+  }
+}

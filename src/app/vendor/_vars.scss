@@ -1,0 +1,13 @@
+$fullWidth: 100%;
+$width: 74%;
+
+%container {
+  width: $width;
+  margin: 0 auto;
+}
+
+%description {
+  width: $fullWidth;
+  line-height: 23.5px;
+  margin: 0;
+}
