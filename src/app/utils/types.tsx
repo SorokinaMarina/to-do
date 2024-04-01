@@ -15,4 +15,33 @@ export interface FormRegisterProps {
   link: string;
   href: string;
   children: JSX.Element;
+  isValid: boolean;
+}
+
+export interface Value {
+  [key: string]: string | "";
+}
+
+export interface ValidFields {
+  [key: string]: boolean;
+}
+
+export interface Focus {
+  focus: boolean;
+  name: string | "";
+}
+
+export interface Validation {
+  values: Value;
+  setValidFields: React.Dispatch<React.SetStateAction<ValidFields>>;
+  setError: React.Dispatch<React.SetStateAction<Value>>;
+  isFocused: Focus;
+}
+
+export interface ValidateField {
+  isValid: boolean;
+  setValidFields: React.Dispatch<React.SetStateAction<ValidFields>>;
+  setError: React.Dispatch<React.SetStateAction<Value>>;
+  isFocused: Focus;
+  errorText: string;
 }
