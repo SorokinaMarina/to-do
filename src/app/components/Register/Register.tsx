@@ -4,6 +4,7 @@ import "./Register.scss";
 import FormRegister from "../FormRegister/FormRegister";
 import { Value, ValidFields, Focus } from "@/app/utils/types";
 import { validation } from "../../utils/validation";
+import InputRegister from "../InputRegister/InputRegister";
 
 export default function Register() {
   // Переменная собирает данные всех полей
@@ -35,7 +36,7 @@ export default function Register() {
   });
 
   // Функция, которая записывает данные из полей в объект values
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>): void {
     const { name, value } = e.target;
 
     setValues((prevValues) => ({ ...prevValues, [name]: value }));
@@ -47,14 +48,14 @@ export default function Register() {
     setIsFocused({ name: name, focus: true });
   }
 
-  function handleBlur(e: React.FocusEvent<HTMLInputElement>): void {
+  function handleBlur(): void {
     setIsFocused({ name: "", focus: false });
   }
 
   // Проверяем валидацию полей
   useEffect(() => {
     validation({ values, setValidFields, setError, isFocused });
-  }, [values]);
+  }, [values, isFocused]);
 
   return (
     <main className="register">
@@ -68,57 +69,39 @@ export default function Register() {
         href="/login"
       >
         <fieldset className="register__fieldset">
-          <label className="register__label" htmlFor="name">
-            <input
-              className={`register__input ${!validFields.name && "register__input_error"}`}
-              name="name"
-              type="text"
-              id="name"
-              minLength={2}
-              maxLength={30}
-              required
-              placeholder="Имя"
-              value={values.name}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-            <span className="register__span">{error.name}</span>
-          </label>
-          <label className="register__label" htmlFor="email">
-            <input
-              className={`register__input ${error.email !== "" && "register__input_error"}`}
-              name="email"
-              type="email"
-              id="email"
-              minLength={2}
-              maxLength={30}
-              required
-              placeholder="E-mail"
-              value={values.email}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-            <span className="register__span">{error.email}</span>
-          </label>
-          <label className="register__label" htmlFor="password">
-            <input
-              className={`register__input ${error.password !== "" && "register__input_error"}`}
-              name="password"
-              type="password"
-              id="password"
-              minLength={2}
-              maxLength={30}
-              required
-              placeholder="Пароль"
-              value={values.password}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-            <span className="register__span">{error.password}</span>
-          </label>
+          <InputRegister
+            name="name"
+            type="text"
+            value={values}
+            handleChange={handleChange}
+            handleFocus={handleFocus}
+            handleBlur={handleBlur}
+            error={error}
+            validFields={validFields}
+            placeholder="Имя"
+          />
+          <InputRegister
+            name="email"
+            type="text"
+            value={values}
+            handleChange={handleChange}
+            handleFocus={handleFocus}
+            handleBlur={handleBlur}
+            error={error}
+            validFields={validFields}
+            placeholder="E-mail"
+          />
+          <InputRegister
+            name="password"
+            type="password"
+            value={values}
+            handleChange={handleChange}
+            handleFocus={handleFocus}
+            handleBlur={handleBlur}
+            error={error}
+            validFields={validFields}
+            placeholder="Пароль"
+          />
         </fieldset>
       </FormRegister>
     </main>
