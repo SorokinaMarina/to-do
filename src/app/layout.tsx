@@ -4,7 +4,7 @@ import "./globals.scss";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
-  weight: "300",
+  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body className={ubuntu.className}>{children}</body>
     </html>
   );

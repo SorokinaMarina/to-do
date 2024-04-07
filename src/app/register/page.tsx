@@ -1,15 +1,10 @@
-import Register from "../components/Register/Register";
-import type { Metadata } from "next";
+import RegisterPage from "../../Components/RegisterPage/RegisterPage";
+import RootLayout from "../layout";
 
-export const metadata: Metadata = {
-  title: "Registration",
-  description: "To-Do Registration Page",
-};
-
-export default function Registration() {
+export default function Register() {
   return (
-    <>
-      <Register />
-    </>
+    <RootLayout>
+      <RegisterPage />
+    </RootLayout>
   );
 }

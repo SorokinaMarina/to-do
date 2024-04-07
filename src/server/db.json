@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {
+      "id": "c377c108-691a-4d87-affa-f93084b86810",
+      "task": "ddddd",
+      "completed": false
+    },
+    {
+      "id": "4bd8aa57-6174-43ef-9303-3ee53dceefca",
+      "task": "Выжить",
+      "completed": false
+    },
+    {
+      "id": "b44a279c-8a9a-476d-9daf-0498ddf996be",
+      "task": "kkkkk",
+      "completed": true
+    }
+  ],
+  "user": [
+    {
+      "id": "1",
+      "name": "Паша",
+      "email": "pasha@mail.ru",
+      "password": "pelmen"
+    }
+  ]
+}

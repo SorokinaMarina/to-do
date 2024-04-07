@@ -1,15 +1,10 @@
-import LoginPage from "../components/LoginPage/LoginPage";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Login",
-  description: "To-Do Login Page",
-};
+import LoginPage from "../../Components/LoginPage/LoginPage";
+import RootLayout from "../layout";
 
 export default function Login() {
   return (
-    <>
+    <RootLayout>
       <LoginPage />
-    </>
+    </RootLayout>
   );
 }
