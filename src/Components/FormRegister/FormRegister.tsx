@@ -10,7 +10,7 @@ export default function FormRegister({
   text,
   link,
   href,
-  isValid,
+  onSubmit,
 }: FormRegisterProps) {
   return (
     <section className="form-register">
@@ -21,13 +21,10 @@ export default function FormRegister({
         name={name}
         id={name}
         noValidate
+        onSubmit={onSubmit}
       >
         {children}
-        <button
-          className={`form-register__button ${!isValid && "form-register__button_disabled"}`}
-          type="submit"
-          disabled={true}
-        >
+        <button className="form-register__button" type="submit">
           {buttonText}
         </button>
       </form>

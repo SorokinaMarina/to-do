@@ -42,5 +42,24 @@ export interface ITask {
 export interface IButtonTask {
   completedItem?: boolean;
   id: string;
-  completed: boolean;
+}
+
+export interface IInputType {
+  [key: string]: string;
+}
+
+export interface IOptions {
+  required: string;
+  minLength: {
+    value: number;
+    message: string;
+  };
+  maxLength: {
+    value: number;
+    message: string;
+  };
+  pattern?: {
+    value: RegExp;
+    message: string;
+  };
 }

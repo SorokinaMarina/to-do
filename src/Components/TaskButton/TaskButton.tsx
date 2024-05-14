@@ -6,13 +6,9 @@ import Circle from "../../img/Circle.svg";
 import useSWRMutation from "swr/mutation";
 import { changeStatusTask } from "@/utils/api";
 
-export default function TaskButton({
-  completedItem,
-  id,
-  completed,
-}: IButtonTask) {
+export default function TaskButton({ completedItem, id }: IButtonTask) {
   const { trigger } = useSWRMutation("tasks", () =>
-    changeStatusTask(id, completed),
+    changeStatusTask(id, !completedItem),
   );
   return (
     <button className="task-button" type="button" onClick={() => trigger()}>

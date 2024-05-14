@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
+import { Value } from "./interface";
 
+// Функция для получения задач с сервера
 export async function getTasks() {
   try {
     const response = await fetch(`${process.env.API_URL}/tasks`, {
@@ -19,6 +21,7 @@ export async function getTasks() {
   }
 }
 
+// Функция для добавления задачи на сервер
 export async function addTask(values: string) {
   try {
     const response = await fetch(`${process.env.API_URL}/tasks`, {
@@ -40,6 +43,7 @@ export async function addTask(values: string) {
   }
 }
 
+// Функция с запросом на изменение статуса задачи
 export async function changeStatusTask(id: string, completed: boolean) {
   try {
     const response = await fetch(`${process.env.API_URL}/tasks/${id}`, {
@@ -61,6 +65,7 @@ export async function changeStatusTask(id: string, completed: boolean) {
   }
 }
 
+// Функция для удаления задач с сервера
 export async function deleteTask(id: string) {
   try {
     const response = await fetch(`${process.env.API_URL}/tasks/${id}`, {
@@ -75,6 +80,34 @@ export async function deleteTask(id: string) {
     }
 
     return await response.json();
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
+// Функция для отправки данных пользователя на сервер
+export async function registerUser(user: Value) {
+  try {
+    const response = await fetch(`${process.env.API_URL}/user`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: uuidv4(),
+        name: user.name,
+        email: user.email,
+        password: user.password,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Не удалось отправить данные пользователя на сервер");
+    }
+
+    const data = await response.json();
+    return data;
   } catch (err) {
     console.log(err);
     return err;

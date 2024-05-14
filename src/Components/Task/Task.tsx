@@ -10,14 +10,10 @@ export default function Task(item: ITask) {
     <section className="task">
       <div className="task__container">
         <div className="task__container-element">
-          <TaskButton
-            completedItem={item.completed}
-            id={item.id}
-            completed={true}
-          />
+          <TaskButton completedItem={item.completed} id={item.id} />
           <p className="task__text">{task}</p>
         </div>
-        <TaskButtonExit id={item.id} completed={false} />
+        <TaskButtonExit id={item.id} />
       </div>
     </section>
   );

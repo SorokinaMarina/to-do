@@ -11,7 +11,7 @@ export default function TaskList() {
 
   // Добавляем разметку для загрузки страницы
   if (isLoading) {
-    return <div className="tasks-list__loading">isLoading...</div>;
+    return <div className="tasks-list__loading">Загружаем...</div>;
   }
 
   // Добавляем обработку ошибки

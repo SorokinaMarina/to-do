@@ -4,31 +4,21 @@ import { InputRegisterType } from "./inputRegister.interface";
 export default function InputRegister({
   name,
   type,
-  value,
-  handleChange,
-  handleFocus,
-  handleBlur,
-  error,
-  validFields,
   placeholder,
+  register,
+  options,
+  error,
 }: InputRegisterType) {
   return (
     <label className="input-register" htmlFor={name}>
       <input
-        className={`input-register__input ${!validFields[name] && "input-register__input_error"}`}
-        name={name}
+        className={`input-register__input ${error && "input-register__input_error"}`}
         type={type}
         id={name}
-        minLength={2}
-        maxLength={30}
-        required
         placeholder={placeholder}
-        value={value[name]}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+        {...register(name, options)}
       />
-      <span className="input-register__span">{error[name]}</span>
+      <span className="input-register__span">{error}</span>
     </label>
   );
 }
